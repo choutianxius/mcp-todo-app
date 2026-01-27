@@ -1,6 +1,6 @@
-# MCP-Powered Todo App
+# MCP Todo App
 
-A modern todo-list application powered by the Model Context Protocol (MCP), featuring an intelligent agent chatbox that manages todos through natural language commands.
+A modern todo application powered by the Model Context Protocol (MCP), featuring an AI agent sidebar that manages todos through natural language commands.
 
 ## Features
 
@@ -13,6 +13,7 @@ A modern todo-list application powered by the Model Context Protocol (MCP), feat
 
 ### MCP Agent Integration
 - **Natural Language Interface**: Interact with todos using conversational commands
+- **Side-by-Side Layout**: Agent sidebar works alongside the main content without blocking interaction
 - **MCP Tools**: Six specialized tools for todo management:
   - `list_todos`: Get all todos with optional filtering
   - `create_todo`: Add new todos with title, description, and tags
@@ -40,14 +41,14 @@ The agent understands various natural language patterns:
 - High contrast dark theme
 - Sharp, immediate interactions (150ms transitions)
 
-## Technology Stack
+## Tech Stack
 
 - **Frontend**: React 19 + TypeScript
-- **Styling**: TailwindCSS 4 + shadcn/ui components
-- **Storage**: IndexedDB for local persistence
+- **Styling**: Tailwind CSS 4 + shadcn/ui components
+- **Storage**: IndexedDB (via Dexie) for local persistence
 - **Routing**: Wouter for client-side routing
 - **Build Tool**: Vite
-- **MCP Architecture**: Browser-native implementation with MCP-style tools
+- **Backend**: Express server for MCP integration
 
 ## Architecture
 
@@ -57,7 +58,7 @@ While traditional MCP uses stdio transport for Node.js/Python processes, this im
 1. **Tool Definitions** (`client/src/lib/mcp-tools.ts`): MCP-style tools with schemas and execute functions
 2. **Agent Service** (`client/src/lib/agent-service.ts`): Interprets natural language and calls appropriate tools
 3. **IndexedDB Layer** (`client/src/lib/db.ts`): Persistent storage for todos
-4. **UI Components**: React components for todo list and agent chatbox
+4. **UI Components**: React components for todo list and agent sidebar
 
 ### Project Structure
 ```
@@ -67,7 +68,7 @@ client/
       TodoItem.tsx          # Individual todo card
       TodoList.tsx          # Todo list with filtering
       AddTodoForm.tsx       # Form to create new todos
-      AgentSidebar.tsx      # Chatbox interface for agent
+      AgentSidebar.tsx      # Chat interface for agent
     lib/
       db.ts                 # IndexedDB wrapper
       mcp-tools.ts          # MCP tool definitions
@@ -76,15 +77,17 @@ client/
       todo.ts               # TypeScript interfaces
     pages/
       Home.tsx              # Main application page
+server/
+  index.ts                  # Express server for MCP
 ```
 
-## Development
+## Getting Started
 
 ### Prerequisites
 - Node.js 22+
 - pnpm
 
-### Getting Started
+### Installation
 ```bash
 # Install dependencies
 pnpm install
@@ -94,11 +97,15 @@ pnpm dev
 
 # Build for production
 pnpm build
+
+# Start production server
+pnpm start
 ```
 
 ### Available Scripts
 - `pnpm dev`: Start development server
 - `pnpm build`: Build for production
+- `pnpm start`: Run production server
 - `pnpm preview`: Preview production build
 - `pnpm check`: TypeScript type checking
 - `pnpm format`: Format code with Prettier
@@ -106,31 +113,20 @@ pnpm build
 ## Usage
 
 ### Manual Todo Management
-1. Click the input field to expand the form
+1. Use the input form to add new todos
 2. Enter a title (required)
 3. Optionally add description and tags (comma-separated)
 4. Click "Add Todo" to create
 
 ### Agent-Powered Management
-1. Click "Open Agent" button in the header
+1. Click "Toggle Agent" button in the header to open the sidebar
 2. Type natural language commands like:
    - "Show all my todos"
    - "Add a todo: Buy milk"
    - "Mark the first one as complete"
    - "Delete Buy milk"
 3. The agent will execute the appropriate MCP tools and update your todos
-
-## Future Enhancements
-
-Potential features to add:
-- **Due Dates**: Add deadline tracking for todos
-- **Priority Levels**: High, medium, low priority indicators
-- **Search**: Full-text search across todo titles and descriptions
-- **Export/Import**: JSON export for backup and sharing
-- **Themes**: Light mode and custom color schemes
-- **Keyboard Shortcuts**: Quick actions via hotkeys
-- **Recurring Todos**: Automatic recreation of repeating tasks
-- **Subtasks**: Break down complex todos into smaller steps
+4. Continue working with the main todo list while the sidebar is open
 
 ## License
 
