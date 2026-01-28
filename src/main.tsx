@@ -17,7 +17,9 @@ import "./index.css";
 
 function App() {
   const [todos, setTodos] = useState<Todo[]>([]);
-  const [isAgentOpen, setIsAgentOpen] = useState(false);
+  const [isAgentOpen, setIsAgentOpen] = useState(
+    () => window.innerWidth >= 640, // Tailwind's `sm` breakpoint
+  );
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -169,10 +171,10 @@ function App() {
 
             <Button
               onClick={() => setIsAgentOpen(!isAgentOpen)}
-              className="border-4 border-primary bg-primary text-primary-foreground hover:bg-primary/90 brutal-shadow-cyan"
+              className={`border-4 ${isAgentOpen ? "border-pink-500 bg-pink-500 hover:bg-pink-400" : "border-primary bg-primary hover:bg-primary/90 brutal-shadow-cyan"} text-primary-foreground`}
             >
-              <Bot className="mr-2 h-5 w-5" />
-              Toggle Agent
+              <Bot className="h-5 w-5 sm:mr-2" />
+              <span className="hidden sm:inline">Toggle Agent</span>
             </Button>
           </div>
         </div>
