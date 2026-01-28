@@ -1,6 +1,6 @@
 # MCP Todo App
 
-A modern todo application powered by the Model Context Protocol (MCP), featuring an AI agent sidebar that manages todos through natural language commands.
+A modern todo application powered by the Model Context Protocol (MCP), featuring an AI agent sidebar that manages todos through natural language commands. Vibe coded with Manus AI and refined with Cursor + Claude Code.
 
 ## Features
 
@@ -87,27 +87,11 @@ server/
 - Node.js 22+
 - pnpm
 
-### Installation
-```bash
-# Install dependencies
-pnpm install
-
-# Start development server
-pnpm dev
-
-# Build for production
-pnpm build
-
-# Start production server
-pnpm start
-```
-
 ### Available Scripts
+- `pnpm install`: Install dependencies
 - `pnpm dev`: Start development server
 - `pnpm build`: Build for production
-- `pnpm start`: Run production server
 - `pnpm preview`: Preview production build
-- `pnpm check`: TypeScript type checking
 - `pnpm format`: Format code with Prettier
 
 ## Usage
