@@ -8,7 +8,7 @@ import { useState } from 'react';
 import { Filter, Trash2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { TodoItem } from './TodoItem';
-import type { Todo } from '@/types/todo';
+import type { Todo } from '@/lib/types';
 
 interface TodoListProps {
   todos: Todo[];

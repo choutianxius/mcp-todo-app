@@ -10,7 +10,7 @@ import { Button } from '@/components/ui/button';
 import { Checkbox } from '@/components/ui/checkbox';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
-import type { Todo } from '@/types/todo';
+import type { Todo } from '@/lib/types';
 
 interface TodoItemProps {
   todo: Todo;

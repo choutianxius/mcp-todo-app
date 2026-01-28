@@ -1,4 +1,4 @@
-import type { Todo } from '@/types/todo';
+import type { Todo } from '@/lib/types';
 
 const DB_NAME = 'mcp-todo-db';
 const DB_VERSION = 1;

@@ -1,5 +1,5 @@
 import { nanoid } from 'nanoid';
-import type { Todo, TodoInput, TodoUpdate } from '@/types/todo';
+import type { Todo, TodoInput, TodoUpdate } from '@/lib/types';
 import { todoDB } from './db';
 
 /**
